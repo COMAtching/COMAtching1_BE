@@ -20,6 +20,7 @@ public class RegisterService {
 	private PasswordEncoder passwordEncoder;
 
 	public RegisterRes registerUser(RegisterReq req) {
+		String temp = "String";
 		String[] depart = new String[] {"인문계열", "국어국문학과", "철학과", "국사학과", "어문계열", "영어영문학부", "중국언어문화학과", "일어일본문화학과",
 			"프랑스어문화학과", "음악과", "종교학과", "신학대학(성신교정)", "사회과학계열", "사회복지학과", "심리학과", "사회학과", "특수교육과", "경영계열", "경영학과",
 			"회계학과", "국제·법정경계열", "국제학부", "법학과", "경제학과", "행정학과", "글로벌경영대학", "글로벌미래경영학과", "세무회계금융학과", "IT파이낸스학과", "자연과학계열",
