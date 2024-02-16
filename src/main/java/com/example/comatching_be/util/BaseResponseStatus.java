@@ -13,6 +13,7 @@ public enum BaseResponseStatus {
 	FAIL_ACCRUE_OVER(false, 2003, "매칭을 5회 초과하였습니다."),
 	FAIL_NOT_BUY_CHANCE(false, 2004, "Pick Someone 서비스를 구매해주세요"),
 	FAIL_NO_MATCHER(false, 3001, "아직 매칭되지 않았습니다"),
+	FAIL_LOGIN(false, 4001, "로그인 실패"),
 	FAIL_NO_PASSWORD(false, 3002, "등록되지 않은 코드 입니다. 폼입력을 진행해주세요");
 
 	private final boolean isSuccess;

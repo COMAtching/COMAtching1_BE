@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.comatching_be.register.dto.EmailReq;
 import com.example.comatching_be.register.dto.RegisterReq;
 import com.example.comatching_be.register.dto.RegisterRes;
+import com.example.comatching_be.register.dto.UserEmailReq;
 import com.example.comatching_be.util.BaseResponse;
 import com.example.comatching_be.util.BaseResponseStatus;
 
@@ -47,7 +49,7 @@ public class RegisterController {
 
 	@GetMapping("/register")
 	public Boolean checkPhone(@RequestParam String phone) {
-		return phoneCheckService.checkPhone(phone);
+		return false;
 	}
 
 	@GetMapping("/register_result")
@@ -59,5 +61,16 @@ public class RegisterController {
 	public Integer participationNums() {
 		Integer num = participationService.participationNums();
 		return num;
+	}
+
+	@PostMapping("/emailAuth")
+	public Boolean emailAuth(@RequestBody EmailReq req) {
+		System.out.println(req.getEmailAuthCode());
+		return true;
+	}
+
+	@PostMapping("/userEmail")
+	public void emailAuth(@RequestBody UserEmailReq req) {
+		System.out.println(req.getEmail());
 	}
 }

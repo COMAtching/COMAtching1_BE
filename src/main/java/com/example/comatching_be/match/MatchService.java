@@ -30,6 +30,7 @@ public class MatchService {
 
 	public BaseResponse<MatchRes> matching(MatchReq req) {
 		String mbti = req.getMbti();
+		System.out.println("mbti !!!! :  " + mbti);
 		String ei = String.valueOf(mbti.charAt(0));
 		String jp = String.valueOf(mbti.charAt(1));
 		List<UserInfo> candidate;
@@ -40,7 +41,7 @@ public class MatchService {
 		//매칭 5회 초과시 예외처리
 		UserInfo userinfo_temp = userInfoRepository.findAllByPasswd(req.getPasswd());
 		Integer acc = userinfo_temp.getChanceAccrue();
-		if (acc == 5) {
+		if (acc == 10) {
 			response = new BaseResponse<>(BaseResponseStatus.FAIL_ACCRUE_OVER);
 			return response;
 		}

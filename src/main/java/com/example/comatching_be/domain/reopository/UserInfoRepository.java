@@ -30,6 +30,8 @@ public interface UserInfoRepository extends JpaRepository<UserInfo, Long> {
 
 	Integer countBy();
 
+	UserInfo findByUserEmail(String userEmail);
+
 	//// update 이따구로 하지 말자
 	// @Modifying(clearAutomatically = true)
 	// @Query(value = "UPDATE user_info u set u.choose = :choose where u.passwd = :passwd", nativeQuery = true)

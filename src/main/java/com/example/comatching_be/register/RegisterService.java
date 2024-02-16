@@ -3,6 +3,7 @@ package com.example.comatching_be.register;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.comatching_be.domain.UserInfo;
@@ -14,6 +15,9 @@ import com.example.comatching_be.register.dto.RegisterRes;
 public class RegisterService {
 	@Autowired
 	UserInfoRepository userInfoRepository;
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	public RegisterRes registerUser(RegisterReq req) {
 		String[] depart = new String[] {"인문계열", "국어국문학과", "철학과", "국사학과", "어문계열", "영어영문학부", "중국언어문화학과", "일어일본문화학과",
@@ -51,6 +55,9 @@ public class RegisterService {
 		userInfo.setChoose(1);
 		userInfo.setPasswd(passwd);
 		userInfo.setChanceAccrue(0);
+		userInfo.setUserEmail(req.getUserEmail());
+		userInfo.setUserPw(passwordEncoder.encode(req.getUserPw()));
+
 		userInfoRepository.save(userInfo);
 		RegisterRes registerRes = new RegisterRes();
 		registerRes.setPasswd(passwd);

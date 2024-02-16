@@ -1,5 +1,6 @@
 package com.example.comatching_be.register.dto;
 
+import javax.persistence.Column;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -35,4 +36,9 @@ public class RegisterReq { //모든 데이터 NULL Blank 허용x
 	@NotBlank(message = "MBTI - 빈칸일 수 없습니다")
 	@Pattern(regexp = "^[EI][NS][FT][PJ]$", message = "MBTI형식에 맞게 입력하ㅔ요")
 	private String mbti;            // 대문자 MBTI만 가능
+
+	@Column(length = 30)
+	private String userEmail;
+
+	private String userPw;
 }

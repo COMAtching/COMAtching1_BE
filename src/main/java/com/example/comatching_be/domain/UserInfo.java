@@ -4,10 +4,13 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.example.comatching_be.auth.Role;
 
 import lombok.Data;
 import lombok.Getter;
@@ -44,6 +47,10 @@ public class UserInfo {
 
 	private Integer chance;
 
+	private String userEmail;
+
+	private String userPw;
+
 	@Column(length = 6)
 	private String passwd;
 
@@ -52,6 +59,9 @@ public class UserInfo {
 	// @Column(name = "match_info")
 	// private List<Long> matches;
 
+	@Enumerated
+	private Role role;
+	
 	@OneToMany(mappedBy = "userId")
 	private List<MatchInfo> matchInfos;
 

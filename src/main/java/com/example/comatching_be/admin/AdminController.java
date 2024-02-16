@@ -1,6 +1,5 @@
 package com.example.comatching_be.admin;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,7 +11,6 @@ import com.example.comatching_be.admin.dto.AdminReq;
 @RestController
 public class AdminController {
 
-	@Autowired
 	AdminService adminService;
 
 	@GetMapping("/adminSearchPhone")
